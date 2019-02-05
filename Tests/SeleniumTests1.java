@@ -12,7 +12,7 @@ import org.testng.annotations.*;
 public class SeleniumTests1 {
     private WebDriver       driver;
     private WebDriverWait   driverWait;
-    private ChromeOptions   chromeOptions = new ChromeOptions()
+    private final ChromeOptions   chromeOptions = new ChromeOptions()
             .addArguments("user-data-dir=%UserProfile%\\AppData\\Local\\Google\\Chrome\\User Data")
             .addArguments("--disable-dev-shm-usage")
             .addArguments("--no-sandbox");
@@ -34,10 +34,12 @@ public class SeleniumTests1 {
 
     @BeforeMethod
     public void setUp() {
+        System.out.println("Starting URL:\t" + driver.getCurrentUrl());
     }
 
     @AfterMethod
     public void tearDown() {
+        System.out.println("Ending URL:\t" + driver.getCurrentUrl());
     }
 
     @DataProvider
